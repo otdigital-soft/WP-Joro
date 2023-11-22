@@ -1,0 +1,53 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+:root {
+  // --gutter: 2rem;
+  // @media only screen and (min-width: 1024px) {
+    --gutter: 4.4rem;
+  // }
+}
+
+/// Regular font family
+/// @type List
+$f-text: 'Scto Grotesk A', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+/// Copy text color
+/// @type Color
+$clr-text: #323232 !default;
+$clr-bg: #E9E0D9 !default;
+
+$clr-black: #323232 !default;
+
+/// Main brand color
+/// @type Color
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1212px !default;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  "phone-xsmall": 320px,
+  "phone-s21": 360px,
+  "phone-small": 375px,
+  "phone": 425px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 992px,
+  "desktop-small": 1024px,
+  "desktop": 1200px,
+  "desktop-wide": 1439px,
+  "desktop-ultra": 1599px,
+) !default;
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;

@@ -1,0 +1,36 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.link {
+  position: relative;
+  display: inline-block;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  &::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid currentColor;
+    transform: scaleX(0);
+    transition: transform .5s ease-in-out;
+    transform-origin: bottom right;
+    will-change: transform;
+  }
+  &:hover::before {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+  &-reverse {
+    &::before {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    &:hover::before {
+      transform: scaleX(0);
+      transform-origin: bottom right;
+    }
+  }
+}

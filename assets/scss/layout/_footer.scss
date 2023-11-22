@@ -1,0 +1,145 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+.footer {
+  padding: svw(60px) 0;
+  background: url('../img/footer-bg.jpg') no-repeat center / cover;
+  color: #fff;
+  @include mq(tablet) {
+    padding: vw(145px) 0 vw(60px);
+  }
+  @include mq(desktop-wide) {
+    padding: 14.5rem 0 6rem;
+  }
+  &-top {
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-gap: vw(110px);
+    }
+    @include mq(desktop-wide) {
+      grid-gap: 11rem;
+    }
+  }
+  &-bottom {
+    @include mq(tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &-widget {
+    @include mq(tablet, max) {
+      &:not(:last-child) {
+        margin-bottom: svw(30px);
+      }
+    }
+    &:first-child {
+      display: flex;
+    }
+  }
+  &-heading {
+    @include mq(tablet) {
+      max-width: 32.3rem;
+    }
+  }
+  &-menu,
+  &-partners {
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-gap: 2rem;
+    }
+  }
+  &-partners {
+    @include mq(tablet, max) {
+      display: flex;
+      margin: -5px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      img {
+        margin: 5px;
+      }
+    }
+  }
+  ul {
+    list-style: none;
+  }
+  &-menu {
+    a {
+      color: #fff;
+      @extend .link;
+    }
+    > li {
+      @include mq(tablet, max) {
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
+      > a {
+        margin-bottom: 1rem;
+        @include typography(17px, 24px, 20px, 24px, 300);
+        @include mq(tablet) {
+          margin-bottom: vw(47px);
+        }
+        @include mq(desktop-wide) {
+          margin-bottom: 4.7rem;
+        }
+      }
+    }
+    .sub-menu {
+      a {
+        @extend .text-md;
+      }
+    }
+  }
+  &-socials {
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+  &-social {
+    @extend .text-md;
+    color: #fff;
+  }
+  &-copyright {
+    margin-bottom: 0;
+    @extend .text-sm;
+    @include mq(tablet, max) {
+      margin-top: 3rem;
+    }
+  }
+  &-bottom {
+    margin-top: svw(100px);
+    padding-top: 1.2rem;
+    border-top: 1px solid #fff;
+    @include mq(tablet) {
+      margin-top: vw(233px);
+    }
+    @include mq(desktop-wide) {
+      margin-top: 23.3rem;
+    }
+    &-menu {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      a {
+        margin-right: 1rem;
+        @extend .link;
+        @extend .text-sm;
+        color: #fff;
+        &::after {
+          display: inline-block;
+          position: absolute;
+          content: '|';
+          top: 0;
+          right: -6px;
+        }
+      }
+      li:last-child a::after {
+        content: none;
+      }
+    }
+  }
+}

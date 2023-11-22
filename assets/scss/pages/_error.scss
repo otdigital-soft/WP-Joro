@@ -1,0 +1,51 @@
+.error-404 {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  background: url('../img/black-bg.jpg') no-repeat center / cover;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  &__heading {
+    margin-bottom: 1rem;
+    font: 300 4rem/normal $f-text;
+  }
+  &__content {
+    font: 300 2rem/normal $f-text;
+  }
+  .link {
+    color: #fff;
+  }
+  .line {
+    position: relative;
+    margin: 3rem auto;
+    width: 0;
+    height: 10rem;
+    @include mq(tablet) {
+      height: 15rem;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      border: 1px solid #fff;
+      transform: scaleY(0);
+      transform-origin: top;
+      animation: line .5s linear 0.4s 1 forwards;
+    }
+  }
+}
+
+@keyframes line {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}

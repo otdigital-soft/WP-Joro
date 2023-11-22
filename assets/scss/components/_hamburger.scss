@@ -1,0 +1,65 @@
+.hamburger {
+  position: relative;
+  z-index: 50;
+  width: 4rem;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  span {
+    position: relative;
+    font-size: 0;
+    width: 4rem;
+    height: 1px;
+    display: block;
+    background: #fff;
+    transition: all .3s ease-in-out;
+    @include when-inside('.header--dark') {
+      background-color: $clr-black;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      display: block;
+      background: #fff;
+      content: '';
+      transition: all .3s ease-in-out;
+      @include when-inside('.header--dark') {
+        background-color: $clr-black;
+      }
+    }
+
+    &::before {
+      top: -6px;
+    }
+
+    &::after {
+      bottom: -6px;
+    }
+  }
+
+  @include when-inside('.page-header.is-opened') {
+    span {
+      background-color: transparent;
+
+      &::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

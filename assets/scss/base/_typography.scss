@@ -1,0 +1,28 @@
+/**
+ * Basic typography style for copy text
+ */
+h1,
+.h1 {
+  @include typography(30px, 36px, 50px, 60px, 300);
+}
+h2,
+.h2 {
+  @include typography(30px, 36px, 46px, 55.2px, 300);
+}
+h3,
+.h3 {
+  @include typography(24px, 30px, 30px, 36px, 300);
+}
+h6,
+.h6 {
+  font: 300 1.7rem/2.4rem $f-text;
+}
+.text-lg {
+  @include typography(17px, 24px, 24px, 28px, 300);
+}
+.text-md {
+  @include typography(15px, 24px, 17px, 24px, 300);
+}
+.text-sm {
+  font: 300 1.4rem/2.4rem $f-text;
+}

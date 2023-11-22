@@ -1,0 +1,88 @@
+.ethos {
+  padding: svw(80px) 0;
+  background: #EFEAE5;
+  text-align: center;
+  @include mq(tablet) {
+    padding: vw(138px) 0 vw(85px);
+  }
+  @include mq(desktop-wide) {
+    padding: 13.8rem 0 8.5rem;
+  }
+  &-heading {
+    margin-bottom: svw(24px);
+    @include mq(tablet) {
+      margin-bottom: vw(30px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 3rem;
+    }
+  }
+  &-content {
+    margin-bottom: svw(40px);
+    margin-inline: auto;
+    @include mq(tablet) {
+      margin-bottom: vw(86px);
+      max-width: vw(665px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 8.6rem;
+      max-width: 66.5rem;
+    }
+  }
+  &-blocks {
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  &-block {
+    transition: all .3s ease-in-out;
+    @include mq(tablet, max) {
+      &:not(:last-child) {
+        margin-bottom: 5rem;
+      }
+    }
+    @include mq(tablet) {
+      padding: vw(95px) vw(47px);
+      &:not(:last-child) {
+        border-right: 1px solid rgba(176, 166, 153, 0.2);
+      }
+    }
+    @include mq(desktop-wide) {
+      padding: 9.5rem 4.7rem;
+    }
+    &__main {
+      opacity: 0.2;
+      transition: all .3s ease-in-out;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    svg path {
+      fill: #B0A699;
+    }
+    &__icon {
+      margin: 0 auto 2rem;
+      width: 11.25rem;
+      height: 10rem;
+      @include mq(tablet) {
+        margin: 0 auto vw(33px);
+        width: vw(135px);
+        height: vw(120px);
+      }
+      @include mq(desktop-wide) {
+        margin-bottom: 3.3rem;
+        width: 13.5rem;
+        height: 12rem;
+      }
+    }
+    &__heading {
+      @include mq(tablet) {
+        margin-bottom: vw(21px);
+      }
+      @include mq(desktop-wide) {
+        margin-bottom: 2.1rem;
+      }
+    }
+  }
+}

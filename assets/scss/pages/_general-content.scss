@@ -1,0 +1,56 @@
+.general-content {
+  padding: svw(100px) 0;
+  background-color: $clr-bg;
+  color: $clr-text;
+  @include mq(tablet) {
+    padding: vw(300px) 0;
+  }
+  @include mq(desktop-wide) {
+    padding: 30rem 0;
+  }
+  &__top,
+  &__block {
+    @include mq(tablet) {
+      display: grid;
+      margin-bottom: vw(100px);
+      grid-template-columns: vw(360px) vw(550px);
+      grid-gap: vw(100px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 10rem;
+      grid-template-columns: 36rem 55rem;
+      grid-gap: 10rem;
+    }
+  }
+  .default-editor {
+    p {
+      margin-bottom: 0;
+    }
+  }
+  &__block {
+    padding-top: svw(100px);
+    border-top: 1px solid $clr-black;
+    @include mq(tablet) {
+      padding-top: vw(133px);
+      align-items: flex-start;
+    }
+    @include mq(desktop-wide) {
+      padding-top: 13.3rem;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &-heading {
+      font: 300 2rem/normal $f-text;
+      @include mq(tablet) {
+        position: sticky;
+        top: 10rem;
+      }
+    }
+    ol {
+      ol {
+        list-style-type: lower-alpha;
+      }
+    }
+  }
+}

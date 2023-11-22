@@ -1,0 +1,50 @@
+// -----------------------------------------------------------------------------
+// This file contains Bootstrap grid system
+// Default column count of row is 12
+// -----------------------------------------------------------------------------
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--grid-gutter-width) * -1);
+  margin-right: calc(var(--grid-gutter-width) * -1);
+  width: 100%;
+}
+
+.row > div {
+  padding-left: var(--grid-gutter-width);
+  padding-right: var(--grid-gutter-width);
+  width: 100%;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: calc((100% / 12) * #{$i});
+    max-width: calc((100% / 12) * #{$i});
+  }
+}
+@for $i from 1 through 12 {
+  .col-sm-#{$i} {
+    @include mq(phablet) {
+      width: calc((100% / 12) * #{$i});
+      max-width: calc((100% / 12) * #{$i});
+    }
+  }
+}
+@for $i from 1 through 12 {
+  .col-md-#{$i} {
+    @include mq(tablet) {
+      width: calc((100% / 12) * #{$i});
+      max-width: calc((100% / 12) * #{$i});
+    }
+  }
+}
+@for $i from 1 through 12 {
+  .col-lg-#{$i} {
+    @include mq(desktop) {
+      width: calc((100% / 12) * #{$i});
+      max-width: calc((100% / 12) * #{$i});
+    }
+  }
+}

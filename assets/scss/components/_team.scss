@@ -1,0 +1,217 @@
+.team {
+  padding: svw(75px) 0;
+  background: $clr-bg;
+  text-align: center;
+  @include mq(tablet) {
+    padding: vw(138px) 0 vw(191px);
+  }
+  @include mq(desktop-wide) {
+    padding: 13.8rem 0 19.1rem;
+  }
+  &-heading {
+    margin-bottom: svw(34px);
+    @include mq(tablet) {
+      margin-bottom: vw(30px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 3rem;
+    }
+  }
+  &-content {
+    margin-bottom: svw(55px);
+    @include mq(tablet) {
+      margin: 0 auto vw(95px);
+      max-width: vw(665px);
+    }
+    @include mq(desktop-wide) {
+      margin-bottom: 9.5rem;
+      max-width: 66.5rem;
+    }
+  }
+  &-image {
+    position: relative;
+    &__dot {
+      position: absolute;
+      padding-left: 2rem;
+      height: vw(30px);
+      width: vw(30px);
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      text-align: right;
+      letter-spacing: 0.1rem;
+      overflow: hidden;
+      background: transparent;
+      z-index: 2;
+      color: transparent;
+      font-weight: 300;
+      font-family: $f-text;
+      @include mq(desktop-wide) {
+        padding-left: 3rem;
+        width: 3.2rem;
+        height: 3.2rem;
+      }
+      &::after {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: vw(15px);
+        width: vw(8px);
+        height: vw(8px);
+        background-color: $clr-black;
+        transform: translate(-50%, -50%);
+        transition: all .5s ease-in-out;
+        @include mq(desktop-wide) {
+          left: 1.6rem;
+          width: 8px;
+          height: 8px;
+        }
+      }
+      &::before {
+        position: absolute; 
+        content: '';
+        top: 0;
+        left: 0;
+        width: vw(30px);
+        height: 100%;
+        transition: all 0.5s ease-in;
+        background-color: $clr-bg;
+        z-index: -1;
+      }
+      &:hover {
+        width: fit-content;
+        padding-right: 1rem;
+        color: $clr-black;
+        transition: all .5s ease-in-out;
+        &::before {
+          width: 200px;
+        }
+      }
+    }
+  }
+  &-popup {
+    position: fixed;
+    padding: svw(105px) svw(45px);
+    top: 0;
+    right: 0;
+    width: 90%;
+    height: 100vh;
+    background: url('../img/skin-bg.jpg') no-repeat center / cover;
+    transform: translateX(100vw);
+    transition: all 1.2s ease-in-out;
+    text-align: left;
+    overflow: auto;
+    z-index: 200;
+    @include mq(tablet) {
+      display: flex;
+      padding: vw(143px) vw(205px) vw(143px) vw(170px);
+      width: vw(1225px);
+      justify-content: space-between;
+    }
+    @include mq(desktop-wide) {
+      padding: 14.3rem 20.5rem 14.3rem 17rem;
+      width: 122.5rem;
+    }
+    &.is-opened {
+      transform: translateX(0);
+    }
+    &__close {
+      position: absolute;
+      top: svw(35px);
+      right: svw(23px);
+      width: svw(24px);
+      height: svw(24px);
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all .5s ease-in-out;
+      @include mq(tablet) {
+        top: vw(47px);
+        right: vw(40px);
+        width: vw(36px);
+        height: vw(36px);
+      }
+      @include mq(desktop-wide) {
+        top: 4.7rem;
+        right: 4rem;
+        width: 3.6rem;
+        height: 3.6rem;
+      }
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+    &__left {
+      @include mq(tablet) {
+        flex-shrink: 0;
+      }
+    }
+    &__image {
+      margin-bottom: svw(28px);
+      @include mq(tablet) {
+        margin-bottom: vw(46px);
+        width: vw(323px);
+        height: vw(466px);
+      }
+      @include mq(desktop-wide) {
+        margin-bottom: 4.6rem;
+        width: 32.3rem;
+        height: 46.6rem;
+      }
+    }
+    &__name {
+      margin-bottom: 1rem;
+      @include typography(26px, 30px, 46px, 55.2px, 300);
+    }
+    &__role {
+      text-transform: uppercase;
+    @include typography(12px, 15px, 17px, 24px, 300);
+    }
+    &__bio {
+      @include mq(tablet, max) {
+        margin-top: svw(40px);
+      }
+      @include mq(tablet) {
+        width: vw(392px);
+      }
+      @include mq(desktop-wide) {
+        width: 39.2rem;
+      }
+    }
+  }
+  &-slide {
+    margin-right: 3.5rem;
+    width: 25rem !important;
+    text-align: left;
+    &__img {
+      margin-bottom: 3rem;
+      display: block;
+      width: 100%;
+      height: 36.2rem;
+    }
+    &__heading {
+      margin-bottom: 1.1rem;
+    }
+    &__role {
+      font: 300 1.2rem/1.5rem $f-text;
+      text-transform: uppercase;
+    }
+  }
+  &.is-opened {
+    &::before {
+      @include element-show;
+    }
+  }
+  &::before {
+    position: fixed;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    @include element-hidden;
+  }
+}

@@ -1,0 +1,21 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+@font-face {
+  font-family: 'Scto Grotesk A';
+  src: url('../fonts/SctoGroteskA-Light.woff2') format('woff2'),
+      url('../fonts/SctoGroteskA-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Scto Grotesk A';
+  src: url('../fonts/SctoGroteskA-Regular.woff2') format('woff2'),
+      url('../fonts/SctoGroteskA-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

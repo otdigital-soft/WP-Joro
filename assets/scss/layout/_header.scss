@@ -1,0 +1,277 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+.header {
+  position: absolute;
+  padding: svw(20px) 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  opacity: 0;
+  animation: fade 0.5s linear 0.5s forwards;
+  transition: 1s;
+  @include adminbar-offset;
+  @include mq(tablet) {
+    padding: vw(40px) 0;
+  }
+  @include mq(desktop-wide) {
+    padding: 4rem 0;
+  }
+  .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include when-inside('.header--dark') {
+      img {
+        filter: invert(1);
+      }
+    }
+    img {
+      width: 16rem;
+    }
+  }
+  &-link {
+    color: #fff;
+    @include typography(12px, 14px, 18px, 22px, 300);
+    @include when-inside('.header--dark') {
+      color: #191919;
+    }
+  }
+  &-nav {
+    position: fixed;
+    top: 0;
+    left: calc(-100% - 5rem);
+    width: 100vw;
+    height: 100vh;
+    transition: 1s;
+    z-index: 51;
+    filter: invert(0);
+    @include mq(tablet) {
+      display: flex;
+    }
+    &__menus {
+      position: relative;
+      width: vw(600px);
+      background-image: linear-gradient(135deg, rgb(193, 172, 155), rgb(244, 237, 231));
+      flex-shrink: 0;
+      @include mq(tablet, max) {
+        padding: 10rem;
+        width: 100%;
+      }
+      @include mq(tablet) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 10%;
+        padding-block: 14.8rem 12.9rem;
+      }
+      @include mq(desktop) {
+        width: 50rem;
+      }
+    }
+    &__hamburger {
+      list-style: none;
+      @include mq(tablet, max) {
+        margin-bottom: 3rem;
+      }
+      &__item {
+        .menu-link {
+          color: #191919;
+          font-size: 3rem;
+          @include mq(tablet) {
+            font-size: 4.6rem;
+          }
+        }
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+          @include mq(tablet) {
+            margin-bottom: 5.3rem;
+          }
+        }
+      }
+    }
+    &__menu {
+      list-style: none;
+      .menu-item {
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+          @include mq(tablet) {
+            margin-bottom: 3rem;
+          }
+        }
+        a {
+          position: relative;
+          display: inline-block;
+          appearance: none;
+          background-color: transparent;
+          border: none;
+          color: #191919;
+          font-size: 1.7rem;
+          &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            border-bottom: 1px solid currentColor;
+            transform: scaleX(1);
+            transition: transform .5s ease-in-out;
+            transform-origin: bottom right;
+            will-change: transform;
+          }
+          &:hover::before {
+            transform-origin: bottom left;
+            transform: scaleX(0);
+          }
+        }
+      }
+    }
+    &__close {
+      position: absolute;
+      top: 3rem;
+      left: 3rem;
+      background-color: transparent;
+      border: none;
+      transition: 0.5s;
+      will-change: transform;
+      cursor: pointer;
+      @include mq(tablet) {
+        top: 4.5rem;
+        left: 4.5rem;
+      }
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+    &__back {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &.is-opened {
+      left: 0;
+    }
+  }
+  &-conversation {
+    position: fixed;
+    top: 0;
+    left: calc(-100% - 5rem);
+    width: 100vw;
+    height: 100vh;
+    transition: 1s;
+    z-index: 51;
+    display: flex;
+    filter: invert(0);
+    @include mq(tablet, max) {
+      flex-direction: column-reverse;
+    }
+    &__main {
+      position: relative;
+      width: 50vw;
+      background-image: linear-gradient(135deg, rgb(193, 172, 155), rgb(244, 237, 231));
+      flex-shrink: 0;
+      @include mq(tablet, max) {
+        padding: 3rem;
+        width: 100%;
+        height: 60%;
+      }
+      @include mq(tablet) {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10%;
+        padding-block: 14.8rem 12.9rem;
+        padding-right: 15rem;
+      }
+    }
+    &__header {
+      margin-bottom: 3rem;
+      @include mq(tablet) {
+        margin-bottom: 5.4rem;
+      }
+    }
+    &__contact {
+      margin-bottom: 3rem;
+      font-size: 2rem;
+      font-weight: 300;
+      @include mq(tablet) {
+        margin-top: auto;
+      }
+      @include mq(tablet, max) {
+        margin-top: 2rem;
+      }
+    }
+    &__social {
+      &s {
+        list-style: none;
+        @include mq(tablet) { 
+          display: flex;
+        }
+      }
+      .header-social {
+        color: #191919;
+        @include mq(tablet) {
+          margin-right: 3rem;
+        }
+        @include mq(tablet, max) {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+    &__close {
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      background-color: transparent;
+      border: none;
+      transition: 0.5s;
+      will-change: transform;
+      cursor: pointer;
+      @include mq(tablet) {
+        top: 4.5rem;
+        right: 4.5rem;
+      }
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+    &__back {
+      width: 50vw;
+      height: 100%;
+      @include mq(tablet, max) {
+        width: 100%;
+        height: 40%;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &.is-opened {
+      left: 0;
+    }
+  }
+  &.header--sticky {
+    position: fixed;
+    .header-logo {
+      filter: invert(68%);
+    }
+    .hamburger {
+      filter: invert(68%);
+    }
+    .header-link {
+      filter: invert(68%);
+    }
+  }
+}
